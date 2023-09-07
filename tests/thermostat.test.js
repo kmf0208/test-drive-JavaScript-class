@@ -8,7 +8,8 @@ describe('thermostat class', () => {
     it('should increase temperature with up method', () => {
         const temperature = new Thermostat()
         temperature.up();
-        expect(temperature.getTemperature()).toBe(21);
+        temperature.up();
+        expect(temperature.getTemperature()).toBe(22);
     })
     it('should increase temperature with up method', () => {
         const temperature = new Thermostat()
@@ -26,6 +27,12 @@ describe('thermostat class', () => {
         const temperature = new Thermostat()
         temperature.setPowerSavingMode(false);
         expect(temperature.getMaxTemperature()).toBe(32);
+      });
+      
+    it('should set power saving mode and adjust max temperature', () => {
+        const temperature = new Thermostat()
+        temperature.setPowerSavingMode(true);
+        expect(temperature.getMaxTemperature()).toBe(25);
       });
     it('should reset temperature to 20', () => {
         const temperature = new Thermostat()
